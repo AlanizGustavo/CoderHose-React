@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <HeaderNav />
-      <ItemListContainer Greeting={'Bienvenido Gustavo'}/>
+      <ItemListContainer Greeting={'Bienvenido a Dulce Victoria, pasteleria artesanal'}/>
     </>
   );
 }

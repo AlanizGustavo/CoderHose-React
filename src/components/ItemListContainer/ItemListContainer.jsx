@@ -1,12 +1,12 @@
 import React from 'react'
 import './style.css'
 
-const Greeting = ({nombre}) => {
+const ItemListContainer = ({Greeting}) => {
   return (
     <div className='titulo'>
-        <h1>Te damos la bienvenida {nombre}</h1>
+        <h1> {Greeting} </h1>
     </div>
   )
 }
 
-export default Greeting
+export default ItemListContainer

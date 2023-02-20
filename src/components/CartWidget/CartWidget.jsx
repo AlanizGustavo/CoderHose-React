@@ -1,13 +1,14 @@
 import React from 'react'
 import { Badge, IconButton } from '@mui/material'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import './style.css'
 
 const CartWidget = () => {
     return (
-        <div className='circuloCarrito'>
-            <IconButton aria-label="delete">
-                <Badge badgeContent={4} color="primary" >
-                    <ShoppingCartIcon sx={{ color: '#f19ccc', fontSize: 40 }}/>
+        <div className='circuloCarrito animacion'>
+            <IconButton >
+                <Badge badgeContent={10} max={9} color='primary'>
+                    <ShoppingCartOutlinedIcon className='carrito' sx={{ color: '#f19ccc', fontSize: 30 }}/>
                 </Badge>
             </IconButton>
         </div>

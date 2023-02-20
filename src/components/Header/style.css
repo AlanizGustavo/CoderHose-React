@@ -53,19 +53,19 @@
     }
 }
 
-.circuloCarrito{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    height: 45px;
-    width: 45px;
-    background-color: #F7F0CA;
-}
-
 .MuiPaper-root {
     background-color: #f19ccc !important;
-    width: 100vw;
+    width: 30vw;
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 599px) {
+    .MuiPaper-root {
+        width: 100vw;
+    }
+}
+
+.animacion:hover {
+    animation: sacudir 0.5s; 
 }

@@ -1,12 +1,12 @@
 import './App.css'
-import Greeting from './components/Greeting/Greeting';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import HeaderNav from './components/Header/HeaderNav.jsx';
 
 function App() {
   return (
     <>
       <HeaderNav />
-      <Greeting nombre={'Gustavo'}/>
+      <ItemListContainer Greeting={'Bienvenido Gustavo'}/>
     </>
   );
 }

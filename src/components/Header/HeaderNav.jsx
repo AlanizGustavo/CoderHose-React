@@ -17,19 +17,19 @@ const pages = ['Realiza tu pedido', 'FAQ', 'Recetas', 'Contáctanos'];
 
 
 export function HeaderNav() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
 
     return (
         <AppBar position="static" sx={{backgroundColor: '#f19ccc'}}>
-            <Container maxWidth="xl">
+            <Container >
                 <Toolbar disableGutters>
                     <Box
                         component="img"
@@ -72,6 +72,7 @@ export function HeaderNav() {
                             
                         {pages.map((page) => (
                             <MenuItem 
+                                className='animacion'
                                 key={page} 
                                 onClick={handleCloseNavMenu}
                                 sx={{ 
@@ -83,11 +84,14 @@ export function HeaderNav() {
                                     my: 2, 
                                     backgroundColor: '#F7F0CA', 
                                     color: '#f19ccc', 
-                                    display: 'block',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
                                     borderRadius: '15px',
                                     fontFamily: '"Amatic SC", cursive' ,
                                     fontSize: '2rem',
                                     fontWeight: '600',
+                                    width: '100%'
                                 }}
                             >
                                 <Typography 
@@ -111,13 +115,14 @@ export function HeaderNav() {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
+                                className='animacion'
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 sx={{ 
                                     ":hover": {
                                         backgroundColor:'#f19ccc',
                                         boxShadow:'0px 0px 25px 1px rgb(0,0,0)',
-                                        color:'#F7F0CA'
+                                        color:'#F7F0CA',
                                     },
                                     my: 2, 
                                     backgroundColor: '#F7F0CA', 
@@ -140,7 +145,7 @@ export function HeaderNav() {
                     <Box sx={{ flexGrow: 0 }}>
                         <CartWidget />
                     </Box>
-            </Toolbar>
+                </Toolbar>
             </Container>
         </AppBar>
     );

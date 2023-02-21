@@ -1,11 +1,23 @@
+import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 import './style.css'
 
 const ItemListContainer = ({Greeting}) => {
   return (
-    <div className='titulo'>
-        <h1> {Greeting} </h1>
-    </div>
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+        sx={{
+          width: '100vw',
+          height: '80vh',
+        }}
+      >
+        <Typography variant='h1' color='darkgray' sx={{fontFamily:'Honey Butter', textAlign:'center'}}>
+          {Greeting}
+        </Typography>
+      </Stack>
   )
 }
 

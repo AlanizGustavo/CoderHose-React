@@ -2,11 +2,3 @@
     font-family: Honey Butter;
     src: url("../assets/fonts/Honey-Butter.ttf");
 }
-
-.titulo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-size: 3rem;
-}

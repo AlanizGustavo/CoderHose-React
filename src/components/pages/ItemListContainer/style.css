@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Honey Butter;
+    src: url("/assets/fonts/Honey-Butter.ttf");
+}
+
+
+button:has(> a.active){
+    background-color: #F7F0CA;
+    color: #f19ccc;
+    border: solid 1px #f19ccc;
+}
+
+
+@media (max-width:600px) {
+    .grupoBtn{
+        width: 90vw;
+    }
+    .grupoBtn button{
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width:400px) {
+    .grupoBtn{
+        width: 90vw;
+    }
+    .grupoBtn button{
+        font-size: 2rem;
+    }
+}

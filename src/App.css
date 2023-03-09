@@ -8,3 +8,8 @@ html{
   background-color: #F7F0CA;
   font-size: 62.5%;
 }
+
+a{
+  text-decoration: none;
+  color: black;
+}

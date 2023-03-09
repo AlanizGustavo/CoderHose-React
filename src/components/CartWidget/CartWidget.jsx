@@ -7,7 +7,7 @@ const CartWidget = () => {
     return (
         <div className='circuloCarrito animacion'>
             <IconButton >
-                <Badge badgeContent={10} max={9} color='primary'>
+                <Badge badgeContent={10} max={9} color='info'>
                     <ShoppingCartOutlinedIcon className='carrito' sx={{ color: '#f19ccc', fontSize: 30 }}/>
                 </Badge>
             </IconButton>

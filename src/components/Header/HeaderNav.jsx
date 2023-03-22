@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import logo from '../../../assets/img/logos/dulce_victoria_amarillo.png'
 import './style.css'
 import { NavLink } from 'react-router-dom';
 
@@ -37,7 +38,7 @@ export function HeaderNav() {
                             component="img"
                             sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
                             alt="Logo de Dulce Victoria"
-                            src="/assets/img/logos/dulce_victoria_amarillo.PNG"
+                            src={logo}
                             className='logo'
                         />
                     </NavLink>
@@ -114,7 +115,7 @@ export function HeaderNav() {
                             component="img"
                             sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
                             alt="Logo de Dulce Victoria"
-                            src="/assets/img/logos/dulce_victoria_amarillo.PNG"
+                            src={logo}
                             className='logo'
                             flexGrow={0}
                         />

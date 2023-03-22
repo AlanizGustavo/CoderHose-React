@@ -3,7 +3,7 @@ import React from 'react'
 
 const FAQ = () => {
   return (
-    <Stack mt='12rem' padding='4rem' height='75vh'>
+    <Stack mt='12rem' mb='8rem' padding='4rem' height='75vh'>
         <Typography mb='3rem' textAlign='center' variant='h1' component='h2' fontFamily='Honey Butter'>
             Preguntas Frecuentes
         </Typography>

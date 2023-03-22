@@ -1,5 +1,7 @@
-import { Box, Button, Container, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
+import banner from '../../../../assets/img/macarons_linea.jpg'
+
 import { NavLink } from 'react-router-dom'
 
 const Home = () => {
@@ -18,7 +20,7 @@ const Home = () => {
       <Box
           component='img'
           sx={{ height: '100vh', minWidth:'100%'}}
-          src='../../../../assets/img/macarons_linea.jpg'
+          src={banner}
           title='{producto.title}'
         />
       <Box

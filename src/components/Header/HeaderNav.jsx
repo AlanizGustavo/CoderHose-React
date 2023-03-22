@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import logo from '../../../assets/img/logos/dulce_victoria_amarillo.png'
+import logo from '../../../assets/img/logos/dulceVictoria_amarillo.png'
 import './style.css'
 import { NavLink } from 'react-router-dom';
 

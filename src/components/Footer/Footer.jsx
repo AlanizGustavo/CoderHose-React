@@ -3,7 +3,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CopyrightIcon from '@mui/icons-material/Copyright';
-import logo from '../../../assets/img/logos/dulce_victoria_amarillo.png'
+import logo from '../../../assets/img/logos/dulceVictoria_amarillo.png'
 import React from 'react'
 
 

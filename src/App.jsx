@@ -14,9 +14,14 @@ function App() {
   const [productos, setProductos] = useState([]);
 
   const getProductos = async () => {
-    const res = await fetch("http://fakestoreapi.com/products");
-    const prodJSON = await res.json();
-    setProductos(prodJSON);
+    const res = await axios.get("http://fakestoreapi.com/products", {
+      method: 'GET',
+      headers: new Headers({
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+      }),
+    });
+    setProductos(res.data);
   }
 
   useEffect(() => {

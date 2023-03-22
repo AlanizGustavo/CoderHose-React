@@ -14,8 +14,9 @@ function App() {
   const [productos, setProductos] = useState([]);
 
   const getProductos = async () => {
-    const res = await axios.get("http://fakestoreapi.com/products");
-    setProductos(res.data);
+    const res = await fetch("http://fakestoreapi.com/products");
+    const prodJSON = await res.json();
+    setProductos(prodJSON);
   }
 
   useEffect(() => {

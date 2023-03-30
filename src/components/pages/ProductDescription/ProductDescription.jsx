@@ -1,10 +1,14 @@
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { ProductosContext } from '../../../contexts/productosContext';
 
-const ProductDescription = ({productos}) => {
+const ProductDescription = () => {
     const {id} = useParams();
+
+    const productos = useContext(ProductosContext);
+
     const producto = productos.find( prod => {
         return prod.id == id;
     })

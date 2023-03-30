@@ -5,7 +5,7 @@ import Error404 from '../../Error/Error404'
 import ProductGrid from '../../ProductGrid/ProductGrid'
 import './style.css'
 
-const ItemListContainer = ({productos}) => {
+const ItemListContainer = () => {
   
   return (
     <Stack 
@@ -42,7 +42,7 @@ const ItemListContainer = ({productos}) => {
       </ButtonGroup>
 
       <Routes>
-        <Route path='/categories/:category' element={<ProductGrid productos={productos}/>}/>
+        <Route path='/categories/:category' element={<ProductGrid />}/>
         <Route path='/*' element={<Error404 />}/>
       </Routes>
       

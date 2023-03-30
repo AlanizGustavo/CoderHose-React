@@ -1,11 +1,14 @@
 import { Grid } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { ProductosContext } from '../../contexts/productosContext'
 import ProductCard from '../ProductCard/ProductCard'
+import './style.css'
 
-const ProductGrid = ({productos}) => {
+const ProductGrid = () => {
     const {category} = useParams();
 
+    const productos = useContext(ProductosContext);
     let prod;
     if (category != 'all') {
         prod = productos.filter( producto => {
@@ -15,12 +18,12 @@ const ProductGrid = ({productos}) => {
         prod = productos;
     }
     return (
-        <Grid container  spacing={3} sx={{ flexGrow: 1, mt:'8rem' }}>
-                {prod.map((producto, index) => {
-                return  <Grid display="flex" justifyContent="center" alignItems="center" key={index} item xs={12} sm={6} lg={4} xl={3}>
-                            <ProductCard key={producto.id} producto={producto}/>
-                        </Grid>
-                })}
+        <Grid container rowSpacing={2} columnSpacing={{ xs: 0, sm: 2, md: 3 }} sx={{ flexGrow: 1, paddingLeft:0 }}>
+            {prod.map((producto, index) => {
+            return  <Grid display="flex" justifyContent="center" alignItems="center" key={producto.id} item xs={12} sm={6} lg={4} xl={3}>
+                        <ProductCard producto={producto}/>
+                    </Grid>
+            })}
         </Grid>
     )
 }

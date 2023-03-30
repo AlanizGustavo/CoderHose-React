@@ -155,4 +155,4 @@ export function HeaderNav() {
         </AppBar>
     );
 }
-export default HeaderNav;
+export default React.memo(HeaderNav);

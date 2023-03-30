@@ -1,0 +1,13 @@
+.grid{
+    padding: 24px;
+}
+
+.gridItem{
+    margin: 1rem;
+}
+
+@media (max-width:600px) {
+    .grid{
+        padding: 0px;
+    }
+}

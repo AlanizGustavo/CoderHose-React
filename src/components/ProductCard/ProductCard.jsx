@@ -11,7 +11,8 @@ import { Box } from '@mui/material';
 const ProductCard = ({producto}) => {
   return (
     <Card sx={{ maxWidth: 345, minWidth: 300}}>
-        <Box padding='1rem'
+        <Box 
+          padding='1rem'
           sx={{
             display:'flex',
             justifyContent:'center', 
@@ -27,7 +28,7 @@ const ProductCard = ({producto}) => {
             title={producto.title}
           />
         </Box>
-        <CardContent>
+        <CardContent >
           <Typography gutterBottom variant="h5" component="div">
             {producto.title}
           </Typography>

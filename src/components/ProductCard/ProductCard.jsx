@@ -10,38 +10,41 @@ import { Box } from '@mui/material';
 
 const ProductCard = ({producto}) => {
   return (
-    <Card sx={{ maxWidth: 345, minWidth: 300}}>
+    <Card sx={{ height:400 ,maxWidth: 345, minWidth: 300}}>
         <Box 
-          padding='1rem'
           sx={{
             display:'flex',
             justifyContent:'center', 
             alignItems:'center',
             width:'100%',
-            backgroundColor:'white'
+            height:'250px',
+            backgroundColor:'white',
+            overflow:'hidden'
           }}
         >
           <CardMedia
             component='img'
-            sx={{ height: 140, width:'auto'}}
+            sx={{ height: 'auto', width:'100%'}}
             src={producto.image}
             title={producto.title}
           />
         </Box>
-        <CardContent >
-          <Typography gutterBottom variant="h5" component="div">
-            {producto.title}
-          </Typography>
-          <Typography variant='h4' color='primary'>
-            ${producto.price}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size='medium' color='primary' variant='contained'>Agregar al Carrito</Button>
-          <NavLink to={`${producto.id}`}>
-            <Button sx={{marginLeft:'1rem'}} size='medium' variant='outlined'>Descripcion</Button>
-          </NavLink>
-        </CardActions>
+        <Box sx={{height:150}}>
+          <CardContent sx={{height:100}}>
+            <Typography gutterBottom variant="h5" component="div">
+              {producto.title}
+            </Typography>
+            <Typography variant='h4' color='primary'>
+              ${producto.price}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size='medium' color='primary' variant='contained'>Agregar al Carrito</Button>
+            <NavLink to={`${producto.id}`}>
+              <Button sx={{marginLeft:'1rem'}} size='medium' variant='outlined'>Descripcion</Button>
+            </NavLink>
+          </CardActions>
+        </Box>
       </Card>
   );
 }

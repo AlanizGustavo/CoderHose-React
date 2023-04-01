@@ -8,6 +8,7 @@ const Home = () => {
   return (
     <Box
       sx={{
+        marginTop:"20px",
         backgroundColor:'black',
         height: '100vh',
         justifyContent: 'center',

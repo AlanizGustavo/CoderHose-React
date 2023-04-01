@@ -35,7 +35,7 @@ const ProductDescription = () => {
                 <Box 
                     component='img'
                     src={producto.image}
-                    sx={{width:'100%', maxWidth:'35vw'}}
+                    sx={{width:'100%', maxWidth:'35vw', borderRadius:5}}
                 />
                 <Box>
                     <Typography fontFamily='Amatic SC' component='h4' variant='h4'>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget.jsx'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,15 +12,21 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../../../assets/img/logos/dulceVictoria_amarillo.png'
+import LogInBtns from '../LogInBtns/LogInBtns.jsx';
+import ProfileMenu from '../ProfileMenu/ProfileMenu.jsx';
 import './style.css'
-import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/userContext.js';
 
 
 const pages = [{nombre:'Realiza tu pedido', path:'/productos/categories/all'}, {nombre:'FAQ', path:'/faq'}, {nombre:'Recetas', path:'/recetas'}, {nombre:'Contáctanos', path:'/contacto'}];
 
-
 export function HeaderNav() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    
+    const isLogedIn = useContext(UserContext);
+
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -43,7 +50,7 @@ export function HeaderNav() {
                         />
                     </NavLink>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    {isLogedIn ? <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-controls="menu-appbar"
@@ -108,8 +115,13 @@ export function HeaderNav() {
                                 </MenuItem>
                             </NavLink>
                         ))}
+                            <NavLink >
+                                <MenuItem sx={{display:"flex", justifyContent:"center"}}>
+                                    <CartWidget />
+                                </MenuItem>
+                            </NavLink>
                         </Menu>
-                    </Box>
+                    </Box> : null}
                     <NavLink to='/'>
                         <Box
                             component="img"
@@ -121,7 +133,7 @@ export function HeaderNav() {
                         />
                     </NavLink>
                     <Typography sx={{ flexGrow: 1 }}/>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    {isLogedIn ? <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems:"center" }}>
                         {pages.map((page, index) => (
                             <NavLink to={page.path}
                                 key={index}
@@ -145,11 +157,13 @@ export function HeaderNav() {
                                 </Button>
                             </NavLink>
                         ))}
-                    </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                        <CartWidget />
-                    </Box>
+                        <NavLink>
+                            <CartWidget />
+                        </NavLink>
+                    </Box> : null}
+                    {!isLogedIn ? <LogInBtns /> : <ProfileMenu />}
+                    
+                    
                 </Toolbar>
             </Container>
         </AppBar>

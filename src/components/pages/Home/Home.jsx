@@ -1,10 +1,12 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import banner from '../../../../assets/img/macarons_linea.jpg'
-
 import { NavLink } from 'react-router-dom'
+import { UserContext } from '../../../contexts/userContext'
+import { useContext } from 'react'
 
 const Home = () => {
+  const isLogedIn = useContext(UserContext)
   return (
     <Box
       sx={{
@@ -39,16 +41,18 @@ const Home = () => {
           Turn the cake into art
         </Typography>
         <NavLink to='/productos/categories/all'>
-          <Button
-            className='animacion' 
-            sx={{
-              mt:'1rem',
-              fontSize:'3rem'
-            }} 
-            color='primary'
-            variant='secondary'>
-              Probá Nuestras delicas
-          </Button>
+          {isLogedIn 
+            ? <Button
+              className='animacion' 
+              sx={{
+                mt:'1rem',
+                fontSize:'3rem'
+              }} 
+              color='primary'
+              variant='secondary'>
+                Probá Nuestras delicas
+              </Button>
+            : null}
         </NavLink>
       </Box>
     </Box>

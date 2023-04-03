@@ -12,7 +12,7 @@ const FAQ = () => {
                 Como realizar un pedido?
             </Typography>
             <Typography ml='2rem' variant='h4' component='p' fontSize='1.5rem' fontFamily='Montserrat Regular, sans-serif'>
-                Realiza tu pedido desde las dos vias habilitadas. Envia Whatsapp detallando tu pedido y fecha de entrega y si es necesario enviarlo a domicilio o completa el formulario en la seccion
+                Inicia sesion y arma tu carrito de compras con nuestras delicias
             </Typography>
         </Typography>
         <Typography component='article'>

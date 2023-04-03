@@ -1,47 +1,67 @@
 import {Routes, Route, Navigate} from 'react-router-dom'
-import { ProductosContext } from './contexts/productosContext';
-import { useEffect, useState } from 'react';
+import { UserContext } from './contexts/userContext';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useState } from 'react';
+import { CarritoContext, GetCarritoContext } from './contexts/carritoContext';
 import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../db/firebase-config';
+import { useEffect } from 'react';
 import ItemListContainer from './components/pages/ItemListContainer/ItemListContainer';
 import HeaderNav from './components/Header/HeaderNav.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Home from './components/pages/Home/Home';
-import ProductDescription from './components/pages/ProductDescription/ProductDescription';
 import Error404 from './components/Error/Error404';
 import FAQ from './components/pages/FAQ/FAQ';
-import db from '../db/firebase-config';
+import NotLoged from './components/NotLoged/NotLoged';
+import Carrito from './components/pages/Carrito/Carrito';
 import './App.css'
 
 function App() {
-  const [productos, setProductos] = useState([]);
-  const itemsCollectionRef = collection(db, "productos");
 
-  const getProductos = async () => {
-    const itemsCollection = await getDocs(itemsCollectionRef);
-    console.log(itemsCollection.docs.map((doc) => ({ ...doc.data(), id: doc.id})))
-    setProductos(itemsCollection.docs.map((doc) => ({ ...doc.data(), id: doc.id})));
+  const [isLogedIn, setIsLogedIn] = useState(false);
+  const [carrito, setCarrito] = useState([])
+
+  const carritoCollectionRef = collection(db, "carrito");
+
+  const getCarrito = async () => {
+    const carritoCollection = await getDocs(carritoCollectionRef);
+    setCarrito(carritoCollection.docs.map((doc) => ({ ...doc.data(), id: doc.id})));
   }
 
   useEffect(() => {
-    getProductos();
-  }, []);
+    getCarrito();
+  }, [])
+  
 
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+      setIsLogedIn(user)
+  })
+  
   return (
     <>
-      <HeaderNav />
-      <ProductosContext.Provider value={productos}>
+    <GetCarritoContext.Provider value={getCarrito}>
+    <CarritoContext.Provider value={carrito}>
+      <UserContext.Provider value={isLogedIn}>
+        <HeaderNav />
         <Routes>
           <Route path='/' element={<Navigate to='home'/>}/>
           <Route path='/home' element={<Home />}/>
           <Route path='/faq' element={<FAQ />}/>
-          {/* <Route path='/recetas' element={<Recetas />}/>
-          <Route path='/contacto' element={<Contacto />}/> */}
-          <Route path='/productos/*' element ={<ItemListContainer />}/>
-          <Route path='/productos/categories/:category/:id' element={<ProductDescription />}/>
-          <Route path='*' element ={<Error404 />}/>
+          {/* <Route path='/contacto' element={<Contacto />}/> */}
+          {isLogedIn ? 
+          <>
+            {/* <Route path='/recetas' element={<Recetas />}/> */}
+            <Route path='/carrito' element={<Carrito />}/>
+            <Route path='/productos/*' element={<ItemListContainer />} />
+          </>
+          : <Route path='/productos/*' element={<NotLoged />} />}
+          <Route path='*' element={<Error404 />} />
         </Routes>
-      </ProductosContext.Provider>
-      <Footer />
+        <Footer />
+      </UserContext.Provider>
+    </CarritoContext.Provider>
+    </GetCarritoContext.Provider>
     </>
   );
 }

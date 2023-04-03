@@ -1,16 +1,10 @@
-import { CircularProgress } from '@mui/material'
 import React from 'react'
+import { Box, CircularProgress } from '@mui/material';
 
-const Spinner = () => {
+export default function Spinner() {
   return (
-    <CircularProgress
-        color="warning"
-        determinate={false}
-        size="md"
-        value={20}
-        variant="soft"
-        />
-  )
+    <Box sx={{ display: 'flex', height:'40vh', justifyContent:'center', alignItems:'center' }}>
+      <CircularProgress color='secondary'/>
+    </Box>
+  );
 }
-
-export default Spinner

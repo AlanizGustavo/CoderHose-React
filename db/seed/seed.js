@@ -1,6 +1,6 @@
-import db from "./firebase-config"
+import {db} from "../firebase-config.js"
 import {collection, addDoc } from "firebase/firestore"
-import productos from "../productos.js"
+import productos from "./productos.js"
 
 const itemsCollectionRef = collection(db, "productos");
 

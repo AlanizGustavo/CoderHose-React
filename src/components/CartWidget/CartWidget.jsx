@@ -12,7 +12,7 @@ const CartWidget = () => {
     const cantItems = () => {
         let contador=0;
         for (let i = 0; i < carrito.length; i++) {
-            contador+= carrito[i].cantidad
+            contador+= +carrito[i].cantidad
         }
         return contador
     }

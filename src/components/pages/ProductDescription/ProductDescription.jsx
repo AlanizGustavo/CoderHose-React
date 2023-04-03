@@ -7,11 +7,12 @@ import { GetCarritoContext } from '../../../contexts/carritoContext';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../../../db/firebase-config';
 import { useState } from 'react';
+import './style.css'
 
 const ProductDescription = () => {
     const {id} = useParams();
 
-    const [cantidad, setCantidad] = useState()
+    const [cantidad, setCantidad] = useState(1)
 
     const productos = useContext(ProductosContext);
     const getCarrito = useContext(GetCarritoContext);
@@ -68,13 +69,14 @@ const ProductDescription = () => {
                         ${producto.price}
                     </Typography>
                     <TextField
+                        className='cantidad'
                         id="outlined-number"
                         label="Cantidad"
                         type="number"
                         placeholder='1'
                         inputProps={{
                             min:'1',
-                            fontSize:'5rem'
+                            value:cantidad,
                         }}
                         fullWidth
                         variant='outlined'

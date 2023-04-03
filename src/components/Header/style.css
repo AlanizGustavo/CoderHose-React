@@ -14,4 +14,14 @@
     .MuiPaper-root {
         width: 100vw;
     }
+    .logo{
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo{
+        min-width: 130px;
+        margin: 0;
+    }
 }

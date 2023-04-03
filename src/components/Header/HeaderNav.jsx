@@ -157,7 +157,7 @@ export function HeaderNav() {
                                 </Button>
                             </NavLink>
                         ))}
-                        <NavLink>
+                        <NavLink to='/carrito'>
                             <CartWidget />
                         </NavLink>
                     </Box> : null}

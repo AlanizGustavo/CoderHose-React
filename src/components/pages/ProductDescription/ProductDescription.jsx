@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Stack, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, IconButton, Snackbar, Stack, TextField, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
@@ -7,20 +7,36 @@ import { GetCarritoContext } from '../../../contexts/carritoContext';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../../../db/firebase-config';
 import { useState } from 'react';
+import './style.css'
 
 const ProductDescription = () => {
     const {id} = useParams();
 
-    const [cantidad, setCantidad] = useState()
+    const [cantidad, setCantidad] = useState(1)
 
     const productos = useContext(ProductosContext);
     const getCarrito = useContext(GetCarritoContext);
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClicCarrito = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+
+        setOpen(false);
+    };
 
     const handleAgregarCarrito = async () => {
         await addDoc(collection(db, "carrito"), {
         ...producto,
         cantidad: cantidad
         });
+        handleClicCarrito()
         getCarrito()
     }
 
@@ -68,13 +84,14 @@ const ProductDescription = () => {
                         ${producto.price}
                     </Typography>
                     <TextField
+                        className='cantidad'
                         id="outlined-number"
                         label="Cantidad"
                         type="number"
                         placeholder='1'
                         inputProps={{
                             min:'1',
-                            fontSize:'5rem'
+                            value:cantidad,
                         }}
                         fullWidth
                         variant='outlined'
@@ -87,6 +104,11 @@ const ProductDescription = () => {
                     <Button onClick={handleAgregarCarrito} sx={{marginTop:'1rem', width:'100%'}} color='secondary' variant='contained'>Agregar al Carrito</Button>
                 </Box>
             </Stack>  
+            <Snackbar color='black' open={open} autoHideDuration={4000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                    Producto agregado con exito
+                </Alert>
+            </Snackbar>
         </Stack>
     )
 }

@@ -115,7 +115,7 @@ export function HeaderNav() {
                                 </MenuItem>
                             </NavLink>
                         ))}
-                            <NavLink >
+                            <NavLink to='/carrito'>
                                 <MenuItem sx={{display:"flex", justifyContent:"center"}}>
                                     <CartWidget />
                                 </MenuItem>
@@ -157,7 +157,7 @@ export function HeaderNav() {
                                 </Button>
                             </NavLink>
                         ))}
-                        <NavLink>
+                        <NavLink to='/carrito'>
                             <CartWidget />
                         </NavLink>
                     </Box> : null}

@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -5,8 +7,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import React from 'react'
-import { NavLink } from 'react-router-dom';
-import { Box } from '@mui/material';
 
 const ProductCard = ({producto}) => {
   return (
@@ -38,12 +38,11 @@ const ProductCard = ({producto}) => {
               ${producto.price}
             </Typography>
           </CardContent>
-          <CardActions>
-            <Button size='medium' color='primary' variant='contained'>Agregar al Carrito</Button>
-            <NavLink to={`${producto.id}`}>
-              <Button sx={{marginLeft:'1rem'}} size='medium' variant='outlined'>Descripcion</Button>
-            </NavLink>
-          </CardActions>
+          <NavLink to={`${producto.id}`}>
+            <CardActions>
+              <Button sx={{width:'100%'}} size='large' color='primary' variant='contained'>Descripcion</Button>
+            </CardActions>
+          </NavLink>
         </Box>
       </Card>
   );

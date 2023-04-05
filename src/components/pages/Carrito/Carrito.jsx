@@ -10,6 +10,7 @@ import CardCheckOut from '../../CardCheckOut/CardCheckOut';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../../../db/firebase-config';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import './style.css'
 
 const style = {
     position: 'absolute',
@@ -100,7 +101,7 @@ const Carrito = () => {
                 }}
             >
                 <Fade in={open}>
-                    <Box sx={style}>
+                    <Box className='mediaQuery' sx={style}>
                         <Typography component='h3' variant='h2' textAlign='center' fontFamily='Amatic SC'>
                             Resumen de compra
                             de:
